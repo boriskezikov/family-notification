@@ -40,10 +40,9 @@ public class EmailService extends Authenticator {
             MimeMessage message = new MimeMessage(getSession());
             message.setFrom(new InternetAddress(USERNAME));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(user.getMail()));
-            message.setSubject("Green App auth");
-
+            message.setSubject("Family App auth");
             message.setText(String.format(
-                    "Your verification code: %s \nRegards,\nGreenApp team."
+                    "Your verification code: %s \nRegards,\nFamily team."
                     , user.getTwoFaCode()));
 
             Transport.send(message);
@@ -58,7 +57,7 @@ public class EmailService extends Authenticator {
             MimeMessage message = new MimeMessage(getSession());
             message.setFrom(new InternetAddress(USERNAME));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(creds.getUsername()));
-            message.setSubject("GreenApp Password changed");
+            message.setSubject("Family Password changed");
 
             message.setText(String.format(
                     "Hi! Your password has been updated!" +
